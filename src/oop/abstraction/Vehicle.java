@@ -1,7 +1,5 @@
 package oop.abstraction;
 
-import java.util.List;
-
 // ================= ABSTRACT CLASS =================
 // Use when RELATED classes share STATE (fields) and CODE.
 // "is-a": a Car IS A Vehicle.
