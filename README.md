@@ -17,22 +17,23 @@ and own notes (`NOTES.md`).
 | 1.3.2 | Overriding | [overriding](src/oop/polymorphism/overriding/) | Same signature in child, `@Override`, runtime | [ ] |
 | 1.4 | Abstraction | [abstraction](src/oop/abstraction/) | Abstract classes vs interfaces | [ ] |
 
-### 2. Data Structures & Algorithms (`src/dsa/`), 
 
-| # | Topic | Folder | What it covers | Status|
-|---|-------|----------------|-------|
-| 2.1 | Big-O | [Big O](src/dsa/bigO/) |Time Complexity (short note about Space Complexity)| [ ] |
-| 2.2 | Arrays | [] ()| `int[]`, `ArrayList`, access vs insert costs | [ ] |
-| 2.3 | Hash maps / sets | [] ()| `HashMap`, `HashSet`, average vs worst case | [ ] | 
-| 2.4 | Stack & Queue | [] ()| `ArrayDeque`, LIFO vs FIFO | [ ] |
-| 2.5 | Linked List | [] ()| Nodes, insert/delete, traversal | [ ] |
-| 2.6 | Recursion | [] ()| Base case, call stack | [ ] |
-| 2.7 | Binary Search |  [] ()| Halving a sorted search space | [ ] |
-| 2.8 | Sorting |  [] ()| Merge sort, quicksort | [ ] |
-| 2.9 | Trees / BST |  [] ()| Nodes, search, insert | [ ] |
-| 2.10 | DFS & BFS |  [] ()| Depth-first vs breadth-first traversal | [ ] |
-| 2.11 | Heap | [] ()|  `PriorityQueue`, min-heap | [ ] |
-| 2.12 | Graphs |  [] ()| Adjacency list representation | [ ] |
+### 2. Data Structures & Algorithms (`src/dsa/`)
+
+| # | Topic | Folder | What it covers | Status |
+|---|-------|--------|----------------|--------|
+| 2.1 | Big O | [bigo](src/dsa/bigo/) | Time complexity (short note on space complexity) | [ ] |
+| 2.2 | Arrays | — | `int[]`, `ArrayList`, access vs insert costs | [ ] |
+| 2.3 | Hash maps / sets | — | `HashMap`, `HashSet`, average vs worst case | [ ] |
+| 2.4 | Stack & Queue | — | `ArrayDeque`, LIFO vs FIFO | [ ] |
+| 2.5 | Linked List | — | Nodes, insert/delete, traversal | [ ] |
+| 2.6 | Recursion | — | Base case, call stack | [ ] |
+| 2.7 | Binary Search | — | Halving a sorted search space | [ ] |
+| 2.8 | Sorting | — | Merge sort, quicksort | [ ] |
+| 2.9 | Trees / BST | — | Nodes, search, insert | [ ] |
+| 2.10 | DFS & BFS | — | Depth-first vs breadth-first traversal | [ ] |
+| 2.11 | Heap | — | `PriorityQueue`, min-heap | [ ] |
+| 2.12 | Graphs | — | Adjacency list representation | [ ] |
 
 ## How each folder is organized
 
