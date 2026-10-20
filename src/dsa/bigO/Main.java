@@ -1,5 +1,9 @@
 package dsa.bigO;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Main {
     // We use LONG variables to count steps, since it could get large.
 
