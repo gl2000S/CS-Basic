@@ -25,7 +25,7 @@ and own notes (`NOTES.md`).
 | 2.1 | Big O | [bigo](src/dsa/bigo/) | Time complexity (short note on space complexity) | [ ] |
 | 2.2 | Arrays | [array](src/dsa/array/) | `int[]`, `ArrayList`, access vs insert costs | [ ] |
 | 2.3 | Hash maps / sets | [hashing](src/dsa/hashing/) | `HashMap`, `HashSet`, average vs worst case | [ ] |
-| 2.4 | Stack & Queue | — | `ArrayDeque`, LIFO vs FIFO | [ ] |
+| 2.4 | Stack & Queue | [stackqueue](src/dsa/stackqueue/) | `ArrayDeque`, LIFO vs FIFO | [ ] |
 | 2.5 | Linked List | — | Nodes, insert/delete, traversal | [ ] |
 | 2.6 | Recursion | — | Base case, call stack | [ ] |
 | 2.7 | Binary Search | — | Halving a sorted search space | [ ] |
