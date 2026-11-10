@@ -31,10 +31,19 @@ right = 2i + 2
 | Search any value | O(n) | O(log n) | O(log n) |
 Use a heap when you repeatedly need the min (or max), not general search.
 
+
 ## Java: PriorityQueue
-- new PriorityQueue<>() → min-heap
-- new PriorityQueue<>(Collections.reverseOrder()) → max-heap
-- offer(x), poll() (null if empty), peek(), size(), isEmpty()
+| Code | Type | peek() / poll() gives |
+|---|---|---|
+| `new PriorityQueue<>()` | Min-heap (default) | Smallest |
+| `new PriorityQueue<>((a, b) -> Integer.compare(a, b))` | Min-heap (same as default, written out) | Smallest |
+| `new PriorityQueue<>(Collections.reverseOrder())` | Max-heap | Largest |
+| `new PriorityQueue<>((a, b) -> Integer.compare(b, a))` | Max-heap | Largest |
+
+- The comparator answers "which comes first?": negative → a first,
+  positive → b first. Swapping a and b flips min-heap ↔ max-heap.
+- Avoid `(a, b) -> b - a`: overflows with extreme values (Integer.MIN_VALUE).
+- offer(x), poll() (null if empty), peek() (null if empty), size(), isEmpty()
 - Printing it shows ARRAY order, not sorted order.
 
 
