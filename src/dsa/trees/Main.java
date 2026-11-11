@@ -4,6 +4,7 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
+import java.util.Queue;
 
 public class Main {
 
@@ -83,14 +84,76 @@ public class Main {
         return out;
     }
 
-        // ================= SEE THE DEPTH-FIRST PATH =================
+    // ================= SEE THE DEPTH-FIRST PATH =================
     public static void tracePreorder(TreeNode node, int depth) {
         if (node == null) return;
-        System.out.println("  ".repeat(depth) + "visit " + node.val + ", ");
+        System.out.println("  ".repeat(depth) + "visit " + node.val);
         tracePreorder(node.left, depth + 1);
         tracePreorder(node.right, depth + 1);
     }
 
+
+    // ================= BFS: LEVEL ORDER =================
+    // Queue = first in, first out → nodes come out in the order they were found,
+    // which is level by level.
+    public static List<Integer> levelOrder(TreeNode root) {
+        List<Integer> out = new ArrayList<>();
+        if (root == null) return out;
+
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();                   // earliest discovered
+            out.add(node.val);
+            if (node.left != null) queue.offer(node.left);  // LEFT first,
+            if (node.right != null) queue.offer(node.right); // so it comes out first
+        }
+        return out;
+    }
+
+    // ================= SEE THE QUEUE AT EACH STEP =================
+    public static void traceLevelOrder(TreeNode root) {
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            if (node.left != null) queue.offer(node.left);
+            if (node.right != null) queue.offer(node.right);
+            System.out.println("poll " + node.val + " -> queue " + values(queue));
+        }
+    }
+
+    // Helper: the queue holds TreeNodes, so pull out their values for printing.
+    private static List<Integer> values(Queue<TreeNode> queue) {
+        List<Integer> out = new ArrayList<>();
+        for (TreeNode n : queue) out.add(n.val);
+        return out;
+    }
+
+    // ================= LEVEL ORDER, GROUPED BY LEVEL =================
+    // The trick: before each level, record queue.size(). Exactly that many nodes
+    // belong to the current level; anything offered during the loop is the NEXT level.
+    public static List<List<Integer>> levelOrderGrouped(TreeNode root) {
+        List<List<Integer>> levels = new ArrayList<>();
+        if (root == null) return levels;
+
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            int size = queue.size();                   // FREEZE this level's count
+            List<Integer> level = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                TreeNode node = queue.poll();
+                level.add(node.val);
+                if (node.left != null) queue.offer(node.left);
+                if (node.right != null) queue.offer(node.right);
+            }
+            levels.add(level);
+        }
+        return levels;
+    }
 
     // ================= MAX DEPTH =================
     // Depth = 1 (this node) + the deeper of the two subtrees.
@@ -170,10 +233,8 @@ public class Main {
         bad.left.right = new TreeNode(6);
         
         System.out.println("Bad tree example:");
-        System.out.println("Bad tree insert root: 5 ");
-        System.out.println("Bad tree insert root.left: 3 ");
-        System.out.println("Bad tree insert root.right: 8 ");
-        System.out.println("Bad tree insert root.left.right : 6 ");
+        System.out.println("Bad tree (built by hand, NOT with insert):");
+        System.out.println("root 5, root.left 3, root.right 8, root.left.right 6");
         printSideways(bad, 0);
 
         System.out.println("Bad tree correct check: " + isValidBST(bad, Long.MIN_VALUE, Long.MAX_VALUE) + "\n");
@@ -204,6 +265,12 @@ public class Main {
         System.out.println("Preorder trace:");
         tracePreorder(good, 0);
 
+        System.out.println();
+        System.out.println("root = [50, 30, 70, 20, 40, 60, 80, 35]");
+        System.out.println("BFS level order: " + levelOrder(root));
+        System.out.println("BFS trace:");
+        traceLevelOrder(root);
+        System.out.println("Levels: " + levelOrderGrouped(root));
         
     }
 }
